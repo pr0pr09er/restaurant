@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Title</title>
+</head>
+<body>
+    <h2>Hello {{ user.username|default:'Guest' }}</h2>
+    <p>Welcome to our restaurant</p>
+    {% if user.is_authenticated %}
+    <a href="{% url 'logout' %}">Logout</a>
+    <a href="{% url 'order' %}">Make order</a>
+    {% else %}
+    <a href="{% url 'signup' %}">Sign up</a>
+    <a href="{% url 'login' %}">Login</a>
+    {% endif %}
+    <h2>Our rooms</h2>
+    <div class="wrapper">
+        <div class="rooms">
+            <div>
+                <p>First room</p>
+                <img width="300px" height="300px" src="{% static 'img/1.jpg' %}" alt="first room">
+            </div>
+            <div>
+                <p>Second room</p>
+                <img width="300px" height="300px" src="{% static 'img/2.jpg' %}" alt="second room">
+            </div>
+            <div>
+                <p>Third room</p>
+                <img width="300px" height="300px" src="{% static 'img/3.jpg' %}" alt="third room">
+            </div>
+        </div>
+        <h2>Our dishes</h2>
+        <div class="dishes">
+            <div>
+                <p>Pasta</p>
+                <img width="300px" height="300px" src="{% static 'img/4.jpg' %}" alt="Pasta">
+            </div>
+            <div>
+                <p>Meat</p>
+                <img width="300px" height="300px" src="{% static 'img/5.jpg' %}" alt="Meat">
+            </div>
+            <div>
+                <p>Soup</p>
+                <img width="300px" height="300px" src="{% static 'img/6.jpg' %}" alt="Soup">
+            </div>
+            <div>
+                <p>Vegetables</p>
+                <img width="300px" height="300px" src="{% static 'img/7.jpg' %}" alt="Vegetables">
+            </div>
+            <div>
+                <p>Fruits</p>
+                <img width="300px" height="300px" src="{% static 'img/8.jpg' %}" alt="Fruits">
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

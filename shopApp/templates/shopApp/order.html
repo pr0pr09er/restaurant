@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h2>Форма заказа</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        Enter the dishes
+        <div>
+            {% for dish in dishes %}
+                <input type="checkbox" name="dishes" value="{{ dish.id }}" />{{ dish.name }}<br />
+            {% endfor %}
+        </div>
+        Enter the number of room
+        <div>
+            <select name="rooms">
+                {% for room in rooms %}
+                <option value="{{ room.id }}">{{ room.numberOfRoom }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <input type="submit" value="Сделать заказ">
+    </form>
+</body>
+</html>
